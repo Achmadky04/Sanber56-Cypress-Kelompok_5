@@ -11,6 +11,16 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+
+Cypress.Commands.add('Register', (FirstName, LastName, Email, Password, ConfirmPassword) => {
+    cy.get('.panel > .header > :nth-child(3) > a').click();
+    cy.get('#firstname').type(FirstName)
+    cy.get('#lastname').type(LastName)
+    cy.get('#email_address').type(Email)
+    cy.get('#password').type(Password)
+    cy.get('#password-confirmation').type(ConfirmPassword)
+
+})
 //
 //
 // -- This is a child command --
