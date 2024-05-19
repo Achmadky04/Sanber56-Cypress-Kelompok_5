@@ -1,3 +1,5 @@
+//Created by Achmad Rizky Mauludi
+
 class RegisterPage{
     ClickCreateAccount(){
         cy.get('.panel > .header > :nth-child(3) > a').click();
@@ -29,9 +31,19 @@ class RegisterPage{
     errorMessageLastName(){
         cy.get('#lastname-error').should('contain.text', 'This is a required field')
     }
+
+    errorMessageEmail(){
+        cy.get('#email_address-error').should('contain.text', 'This is a required field')
+    }
+
+    errorMessagePassword(){
+        cy.get('#password-error').should('contain.text', 'This is a required field')
+    }
     
     errorMessageConfirmPassword(){
         cy.get('#password-confirmation-error').should('contain.text', 'This is a required field')
     }
 }
 export default new RegisterPage()
+
+//End of Created by Achmad Rizky Mauludi

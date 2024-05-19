@@ -1,4 +1,6 @@
+//Created by Achmad Rizky Mauludi
 import RegisterPage from '../support/page-objects/RegisterPage.cy'
+
 
 describe('template spec', () => {
   beforeEach(() => {
@@ -10,7 +12,7 @@ describe('template spec', () => {
   it('Normal Case - Success Register', () => {
     //using custom Command
     //Please change the value of email to success the register
-    cy.Register('John', 'Doe', 'jhondoeee2@gmail.com', 'qwerty123!@#', 'qwerty123!@#')
+    cy.Register('John', 'Doe', 'jhondoeese2@gmail.com', 'qwerty123!@#', 'qwerty123!@#')
     cy.url().should('include', 'customer/account/')
   })
 
@@ -98,9 +100,23 @@ describe('template spec', () => {
     RegisterPage.errorMessageConfirmPassword()
   })
 
-  // it.only('Negative Case - Failed Register (Password Strength : Weak)', () => {
-  //   //using custom Command
-  //   cy.Register('John', 'Doe', 'jhondoeee2@gmail.com', 'qwer', 'qwer')
+  it('Negative Case - Failed Register (Password Strength : Weak)', () => {
+    //using custom Command
+    cy.Register('John', 'Doe', 'jhondoeee2@gmail.com', 'qwer', 'qwer')
     
-  // })
+  })
+
+  it.only('Negative Case - Failed Register ()', () => {
+    //using Page Object Model
+    RegisterPage.ClickCreateAccount()
+    RegisterPage.clickButton()
+    RegisterPage.errorMessageFirstName()
+    RegisterPage.errorMessageLastName()
+    RegisterPage.errorMessageEmail()
+    RegisterPage.errorMessagePassword()
+    RegisterPage.errorMessageConfirmPassword()
+    
+  })
 })
+
+// End of Created by Achmad Rizky Mauludi
