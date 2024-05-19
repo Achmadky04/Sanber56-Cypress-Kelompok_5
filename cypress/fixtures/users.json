@@ -1,0 +1,17 @@
+[
+    {
+        "FirstName" : "John",
+        "LastName" : "Doe",
+        "Email" : "jhondoeee2@gmail.com",
+        "Password": "qwerty123!@#",
+        "ConfirmPassword" : "qwerty123!@#"
+    },
+
+    {
+        "FirstName" : "John",
+        "LastName" : "Doe",
+        "Email" : " ",
+        "Password": "qwerty123!@#",
+        "ConfirmPassword" : "qwerty123!@#"
+    }
+]

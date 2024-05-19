@@ -19,7 +19,18 @@ Cypress.Commands.add('Register', (FirstName, LastName, Email, Password, ConfirmP
     cy.get('#email_address').type(Email)
     cy.get('#password').type(Password)
     cy.get('#password-confirmation').type(ConfirmPassword)
+    cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').click()
+})
 
+Cypress.Commands.add('PasswordWeak', (FirstName, LastName, Email, Password, ConfirmPassword) => {
+    cy.get('.panel > .header > :nth-child(3) > a').click();
+    cy.get('#firstname').type(FirstName)
+    cy.get('#lastname').type(LastName)
+    cy.get('#email_address').type(Email)
+    cy.get('#password').type(Password)
+    cy.get('#password-confirmation').type(ConfirmPassword)
+    cy.get('#form-validate > .actions-toolbar > div.primary > .action > span').click()
+    cy.get('#password-error').should('contain.text', 'Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored.')
 })
 //
 //
