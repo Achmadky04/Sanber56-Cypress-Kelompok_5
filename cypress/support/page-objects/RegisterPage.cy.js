@@ -2,7 +2,7 @@
 
 class RegisterPage{
     ClickCreateAccount(){
-        cy.get('.panel > .header > :nth-child(3) > a').click();
+        cy.get('.panel > .header > :nth-child(3) > a').should('contain.text' , 'Create an Account').click();
     }
 
     fillFirstName(FirstName){

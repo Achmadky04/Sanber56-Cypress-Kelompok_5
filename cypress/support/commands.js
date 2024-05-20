@@ -14,7 +14,7 @@
 
 //Created by Achmad Rizky Mauludi
 Cypress.Commands.add('Register', (FirstName, LastName, Email, Password, ConfirmPassword) => {
-    cy.get('.panel > .header > :nth-child(3) > a').click();
+    cy.get('.panel > .header > :nth-child(3) > a').should('contain.text' , 'Create an Account').click();
     cy.get('#firstname').type(FirstName)
     cy.get('#lastname').type(LastName)
     cy.get('#email_address').type(Email)

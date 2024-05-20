@@ -12,12 +12,13 @@ describe('template spec', () => {
   it('Normal Case - Success Register', () => {
     //using custom Command
     //Please change the value of email to success the register
-    cy.Register('John', 'Doe', 'jhondoeese2@gmail.com', 'qwerty123!@#', 'qwerty123!@#')
+    cy.Register('John', 'Doe', 'jhondoeese3@gmail.com', 'qwerty123!@#', 'qwerty123!@#')
     cy.url().should('include', 'customer/account/')
   })
 
   it('Negative Case - Failed Register (email already used)', () => {
     //using fixture
+    cy.get('.panel > .header > :nth-child(3) > a').should('contain.text' , 'Create an Account').click();
     cy.fixture('users.json').then((users) => {
       const dataregister = users[0];
       cy.Register(dataregister.FirstName, dataregister.LastName, dataregister.Email, dataregister.Password, dataregister.ConfirmPassword)
@@ -54,6 +55,7 @@ describe('template spec', () => {
   it('Negative Case - Failed Register (Email not filled)', () => {
 
     //using fixture
+    cy.get('.panel > .header > :nth-child(3) > a').should('contain.text' , 'Create an Account').click();
     cy.fixture('users.json').then((users) => {
       const dataregister = users[1];
       cy.Register(dataregister.FirstName, dataregister.LastName, dataregister.Email, dataregister.Password, dataregister.ConfirmPassword)
@@ -64,7 +66,7 @@ describe('template spec', () => {
 
   it('Negative Case - Failed Register (Email not contain domain name)', () => {
     //basic syntax
-    cy.get('.panel > .header > :nth-child(3) > a').click();
+    cy.get('.panel > .header > :nth-child(3) > a').should('contain.text' , 'Create an Account').click();
     cy.get('#firstname').type("John")
     cy.get('#lastname').type("Doe")
     cy.get('#email_address').type("johnDoe")
@@ -76,7 +78,7 @@ describe('template spec', () => {
 
   it('Negative Case - Failed Register (Password not filled)', () => {
     //basic syntax
-    cy.get('.panel > .header > :nth-child(3) > a').click();
+    cy.get('.panel > .header > :nth-child(3) > a').should('contain.text' , 'Create an Account').click();
     cy.get('#firstname').type("John")
     cy.get('#lastname').type("Doe")
     cy.get('#email_address').type("johnDoeer@gmail.com")
@@ -106,7 +108,7 @@ describe('template spec', () => {
     
   })
 
-  it.only('Negative Case - Failed Register ()', () => {
+  it('Negative Case - Failed Register (All field blank)', () => {
     //using Page Object Model
     RegisterPage.ClickCreateAccount()
     RegisterPage.clickButton()
