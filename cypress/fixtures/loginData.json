@@ -1,0 +1,19 @@
+
+{
+  "validCredentials": {
+    "email": "validuser@gmail.com",
+    "password": "v@lidUser1"
+  },
+  "invalidCredentials":{
+    "email": "wrongemail@gmail.com",
+    "password": "wrongpassword"
+  },
+  "invalidEmail": {
+    "email": "wrongemail@gmail.com",
+    "password": "v@lidUser1"
+  },
+  "invalidPassword": {
+    "email": "validuser@gmail.com",
+    "password": "wrongpassword"
+  }
+}
